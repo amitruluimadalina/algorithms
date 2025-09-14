@@ -7,22 +7,98 @@
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
-    <script src="app.js"></script>
+    <script src="helpers.js" type="module" defer></script>
+    <script src="app.js" type="module" defer></script>
   </head>
   <body>
     <header>
       <nav class="navbar">
         <div class="navbar-container">
           <a href="/" id="logo">Hi</a>
-          <div class="mobile-menu">Hamburger Menu here</div>
-          <ul class="navbar-menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/structures.js">Data Structures</a></li>
-            <li><a href="/algorithms.js">Algorithms</a></li>
+          <div class="mobile-menu" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <ul class="navbar-menu" id="navbar-menu">
+            <li class="navbar-item"><a href="/">Home</a></li>
+            <li class="navbar-item">
+              <a href="/structures.html">Data Structures</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/algorithms.html">Algorithms</a>
+            </li>
           </ul>
         </div>
       </nav>
     </header>
-    <main></main>
+    <main>
+      <h1>WIP</h1>
+      <h2>This is a playground for my learning.</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">Comparison between debounce and throttle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Debounce</th>
+            <th>Throttle</th>
+          </tr>
+          <tr>
+            <td>
+              <ul>
+                <li>
+                  Executes the function after a specified delay since the last
+                  event.
+                </li>
+                <li>
+                  Useful for scenarios where you want to wait until the user has
+                  stopped performing an action (e.g., search input).
+                </li>
+                <li>Prevents multiple rapid calls to the function.</li>
+              </ul>
+              <div class="debounce-example">
+                <h3>
+                  <strong>Example:</strong>
+                </h3>
+                <input
+                  type="text"
+                  id="inputField"
+                  placeholder="Type something..."
+                  title="Debounce effect"
+                />
+                <p id="output"></p>
+              </div>
+            </td>
+            <td>
+              <ul>
+                <li>
+                  Executes the function at regular intervals, regardless of how
+                  many events occur.
+                </li>
+                <li>
+                  Useful for scenarios where you want to limit the rate of
+                  function execution (e.g., scrolling, resizing).
+                </li>
+                <li>
+                  Ensures that the function is called at most once in a
+                  specified time period.
+                </li>
+              </ul>
+              <div class="throttle-example">
+                <h3>
+                  <strong>Example:</strong>
+                </h3>
+                <button id="throttle-button">Click Me</button>
+                <p id="output-throttle"></p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
   </body>
 </html>

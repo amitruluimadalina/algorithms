@@ -3,11 +3,13 @@
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  user-select: none;
 }
 
 .navbar {
-  color: black;
-  background-color: pink;
+  color: white;
+  background-color: black;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -24,30 +26,83 @@
   margin-inline: 0.5rem;
   padding: 0.5rem;
   align-items: center;
-  a {
-    color: black;
-  }
+}
 
-  #logo {
-    width: 20px;
-    height: 20px;
-    overflow: hidden;
-    cursor: pointer;
-    text-decoration: none;
-  }
+.navbar-menu {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  list-style: none;
+  gap: 1rem;
+}
 
-  #logo:visited {
-    color: red;
+.navbar-container a {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    transition: all 0.5s ease-in-out;
+    color: gray;
+  }
+}
+
+.navbar-item {
+  padding: 0.5rem 1rem;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  .navbar-container {
+    justify-content: space-between;
   }
 
   .navbar-menu {
-    display: flex;
-    justify-content: end;
+    display: none;
+  }
+
+  .navbar-menu.active {
+    display: inline-block;
+    margin: 0;
+    width: 100vw;
+    height: calc(100vh - 80px);
+    position: absolute;
+    top: 80px;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+    background: black;
+  }
+
+  .mobile-menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  .mobile-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+  }
+
+  .navbar-item {
     width: 100%;
-    list-style: none;
-    > li > a {
-      text-decoration: none;
-      text-align: center;
-    }
+    text-align: center;
+    margin: 10px;
+  }
+  #mobile-menu.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #mobile-menu.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #mobile-menu.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 }
